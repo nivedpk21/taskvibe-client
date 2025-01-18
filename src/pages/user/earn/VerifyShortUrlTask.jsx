@@ -15,6 +15,7 @@ export default function VerifyShortUrlTask() {
       })
       .then((response) => {
         toast.success(response.data.message);
+        setMessage(response.data.message);
       })
       .catch((error) => {
         setMessage(error.response.data.message);
@@ -23,7 +24,7 @@ export default function VerifyShortUrlTask() {
       .finally(() => {
         setTimeout(() => {
           window.close();
-        }, 3000);
+        }, 5000);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
