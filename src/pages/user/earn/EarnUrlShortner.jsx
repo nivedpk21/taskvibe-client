@@ -114,7 +114,6 @@ export default function EarnUrlShortner() {
 
   // manage task report
   const submitReport = async (taskId) => {
-
     if (!reportMessage.trim()) {
       toast.error("Please enter a report message.");
       return;
@@ -174,7 +173,7 @@ export default function EarnUrlShortner() {
                 {Array.isArray(data) && data.length > 0 ? (
                   data.map((item, index) => (
                     <tr key={item._id}>
-                      <th scope="row">{index + 1}</th>
+                      <th scope="row">{(currentPage - 1) * 6 + (index + 1)}</th>
                       <td>{item.name}</td>
                       <td className="text-success">{item.payPerView.$numberDecimal.toString()}$</td>
                       <td>15min</td>
