@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./contact.css";
+import axiosInstance from "./../utils/axiosInstance.js";
+import toast from "react-hot-toast";
 
 const Navigation = React.lazy(() => import("../layout/Navigation"));
 const Footer = React.lazy(() => import("../layout/Footer"));
@@ -19,9 +21,10 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      // Simulate a POST request (Replace this with an actual API call)
+      const response = await axiosInstance.post("/user/post-message", formData);
+
       setTimeout(() => {
-        alert("Message sent successfully!");
+        toast.success(response.data.message);
         setFormData({ name: "", email: "", message: "" });
         setIsSubmitting(false);
       }, 1000);

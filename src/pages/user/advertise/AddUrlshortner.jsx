@@ -36,7 +36,7 @@ export default function AddUrlshortner() {
     destUrl: "",
     shortUrl: "",
     payPerView: 0.001,
-    targetViews: 10,
+    targetViews: 5,
     status: "active",
   });
   const [formErrors, setFormErrors] = useState({});
@@ -66,8 +66,8 @@ export default function AddUrlshortner() {
     }
     if (!values.targetViews) {
       error.targetViews = "set target clicks";
-    } else if (values.targetViews < 10) {
-      error.targetViews = "set minimum 10 clicks";
+    } else if (values.targetViews < 5) {
+      error.targetViews = "set minimum 5 clicks";
     }
     if (total > balance) {
       error.total = "insufficient balance";
@@ -145,7 +145,7 @@ export default function AddUrlshortner() {
             destUrl: "",
             shortUrl: "",
             payPerView: 0.001,
-            targetViews: 10,
+            targetViews: 5,
             status: "active",
           });
           setDisplay("");
@@ -284,7 +284,7 @@ export default function AddUrlshortner() {
                       <span className="p-1"></span>
                       <div className="">
                         <label htmlFor className="form-label">
-                          Target Clicks
+                          Target Clicks (min 5)
                         </label>
                         <input
                           type="number"
@@ -294,7 +294,7 @@ export default function AddUrlshortner() {
                           id
                           aria-describedby="helpId"
                           placeholder="0"
-                          min="10"
+                          min="5"
                           max="1000"
                           value={inputData.targetViews}
                         />
@@ -306,6 +306,9 @@ export default function AddUrlshortner() {
                       <p className="mb-1">Total Cost (including 25% Fee)</p>
                       <p className="m-0">{total}$</p>
                       <span className="text-danger small">{formErrors.total}</span>
+                      <span className="text-secondary">*24 hour unique clicks</span>
+                      <br />
+                      <span className="text-secondary">*Takes 24 hours to complete clicks</span>
                     </div>
 
                     <div className="d-flex">
