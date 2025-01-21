@@ -17,7 +17,7 @@ export default function Home() {
         {/* FIRST SECTION */}
         <section>
           <div className="landing-section">
-            <div className="first-section-div ">
+            <div className="first-section-div py-1">
               <h1 className="landing-text">
                 Smart Solutions <br />
                 for Digital <br /> Success
