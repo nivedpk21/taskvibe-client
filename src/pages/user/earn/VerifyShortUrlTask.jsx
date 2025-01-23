@@ -24,7 +24,7 @@ export default function VerifyShortUrlTask() {
       .finally(() => {
         setTimeout(() => {
           window.close();
-        }, 5000);
+        }, 3000);
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
